@@ -1,0 +1,44 @@
+About
+=====
+
+A simple tool based on `stress`_
+
+A simple plugin framework inspired by the `work of Marty Alchin`_. 
+
+.. _`stress`: http://manpages.ubuntu.com/manpages/precise/man1/stress.1.html
+
+
+Building the Docker image
+=========================
+
+Clone this repository and run::
+
+    $ docker build -t petarmaric/cpu_stress_test
+
+
+How to use this image
+=====================
+
+::
+
+    $ docker run -ti petarmaric/cpu_stress_test
+
+The following environment variables are honored for configuring ``stress``:
+
+    * ``-e STRESS_SYSTEM_FOR=...`` (defaults to ``5m``)
+
+    * ``-e MAX_CPU_CORES=...`` (defaults to ``1``)
+
+
+
+
+
+
+
+To run (using defaults)::
+
+    $ docker run -ti petarmaric/cpu_stress_test
+
+To run (changing defaults)::
+
+    $ docker run -ti -e MAX_CPU_CORES=4 -e STRESS_SYSTEM_FOR=30s petarmaric/cpu_stress_test
